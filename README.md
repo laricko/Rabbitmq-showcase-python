@@ -1,26 +1,30 @@
-
-# A microservice boilerplate
+# A RabbitMQ-based service interaction boilerplate
 
 ### Purpose.
-Develop a clear and intuitive boilerplate that provides a foundation for building scalable and reliable applications using microservices architecture, ensuring it is accessible and practical for widespread use.
+
+Develop a clear and intuitive boilerplate that provides a foundation for building scalable and reliable applications using a message-broker–driven architecture (RabbitMQ), ensuring it is accessible and practical for widespread use.
 
 ### Description
+
 This template contains three main directories: `api`, `service1`, and `service2`. The `api` directory handles incoming client (frontend) requests and distributes them to the appropriate services using RabbitMQ as the message broker. The services always consume incoming messages and process them.
 
-### Microservices architecture is beneficial when:
-1.  **Scalability Needs**: When your application must handle significant and fluctuating loads, microservices allow individual components to scale independently.
-    
-2.  **Complexity Management**: For large and complex applications, microservices break down the system into manageable, independent services, simplifying development and maintenance.
-    
-3.  **Fault Isolation and Resilience**: Microservices enhance fault tolerance by isolating failures to individual services, ensuring that issues in one part of the system do not bring down the entire application.
+### RabbitMQ-driven architecture is beneficial when:
 
-Use microservices architecture when these factors align with your project's requirements, but be aware of the trade-offs, such as increased complexity in deployment, monitoring, and inter-service communication.
+1. **Scalability Needs**: When your application must handle significant and fluctuating loads, asynchronous messaging lets individual components scale independently.
+
+2. **Complexity Management**: For applications that benefit from decoupled components, message queues help break the system into manageable, independent services, simplifying development and maintenance.
+
+3. **Fault Isolation and Resilience**: Broker-based communication enhances fault tolerance by isolating failures to individual services and smoothing spikes in traffic.
+
+Use message-broker architecture when these factors align with your project’s requirements, but be aware of the trade-offs, such as increased complexity in deployment, monitoring, and inter-service communication patterns.
 
 ### Theoretical usage
+
 It is assumed that all your services will be placed in separate Git repositories. Ensure that all components have access to the necessary environment variables, which can be managed using Docker and Kubernetes. This template uses RabbitMQ as the message broker, so you need to know how RabbitMQ works (different types of exchanging, exchangers, queues, routing keys), but you can also consider alternatives like Apache Kafka or even the HTTP protocol.
 
 ### Local usage
-To better understand microservice architecture, launch each Docker container in separate terminal windows and explore their interactions:
+
+To better understand message-broker-driven architecture, launch each Docker container in separate terminal windows and explore their interactions:
 
 `docker-compose -f docker-compose.message-broker.yml up`
 `docker-compose -f docker-compose.api.yml up`
